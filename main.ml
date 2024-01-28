@@ -29,3 +29,11 @@ let length (xs: 'a list): int =
     | _ :: rest -> length' rest (result + 1)
   in length' xs 0
 
+let imper_length (xs: 'a list): int =
+  let result = ref 0 in
+  let ys = ref xs in
+  while !ys != [] do
+    result := !result + 1;
+    ys := List.tl !ys
+  done;
+  !result
