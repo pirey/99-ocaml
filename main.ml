@@ -20,3 +20,12 @@ let rec at (k: int) (xs: 'a list): 'a option =
   | x :: _ when k == 1 -> Some x
   | _ :: rest when k > 1 -> at (k - 1) rest
   | _ -> None
+
+(* Problem 4 *)
+let length (xs: 'a list): int =
+  let rec length' (xs: 'a list) (result: int): int =
+    match xs with
+    | [] -> result
+    | _ :: rest -> length' rest (result + 1)
+  in length' xs 0
+
