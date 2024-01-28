@@ -37,3 +37,11 @@ let imper_length (xs: 'a list): int =
     ys := List.tl !ys
   done;
   !result
+
+(* Problem 5 *)
+let rev (xs: int list): int list =
+  let rec rev' (xs: int list) (acc: int list): int list =
+    match xs with
+    | [] -> acc
+    | x :: rest -> rev' rest (x :: acc)
+  in rev' xs []
